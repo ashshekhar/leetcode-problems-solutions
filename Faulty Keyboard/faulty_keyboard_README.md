@@ -1,3 +1,5 @@
+# Faulty Keyboard Problem
+
 The 'a' key on the keyboard is not working correctly. Instead of typing 'a' or 'A', it toggles the Caps Lock. 
 Return the value of a string that is typed into a keyboard on such a faulty keyboard.
 
