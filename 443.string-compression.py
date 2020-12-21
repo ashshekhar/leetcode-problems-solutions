@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=443 lang=python
+#
+# [443] String Compression
+#
+
+# @lc code=start
 class Solution(object):
     def compress(self, chars):
         """
@@ -30,3 +37,5 @@ class Solution(object):
         del chars[:]
         chars.extend(s)
         return len(chars)
+# @lc code=end
+

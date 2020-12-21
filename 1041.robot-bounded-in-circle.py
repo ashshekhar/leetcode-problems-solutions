@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=1041 lang=python
+#
+# [1041] Robot Bounded In Circle
+#
+
+# @lc code=start
 class Solution(object):
     def isRobotBounded(self, instructions):
         """
@@ -44,3 +51,6 @@ class Solution(object):
         if(initial_direction != "N" or (initial_x == 0 and initial_y == 0)):
            return True
         return False
+        
+# @lc code=end
+
