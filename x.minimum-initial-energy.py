@@ -13,8 +13,6 @@ def minimum_energy(checkpoints):
     
   return minimum_energy
 
-
-
 def main():
   example = [-1,-5,-9]
   print(minimum_energy(example))
