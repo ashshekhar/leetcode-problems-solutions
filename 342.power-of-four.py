@@ -11,6 +11,6 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        
+        return type(pow(n, 1/4)) == int
 # @lc code=end
 
