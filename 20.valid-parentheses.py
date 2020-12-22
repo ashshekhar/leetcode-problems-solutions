@@ -5,27 +5,34 @@
 #
 
 # @lc code=start
+from collections import deque
+
 class Solution(object):
     def isValid(self, s):
         """
         :type s: str
         :rtype: bool
         """
+        # Best DS for such problems are stacks
         num = len(s)
-        i = num//2 - 1
-        j = i+1
+        parentheses = deque()
+        brackets = {'(':')', '{':'}', '[':']'}
 
         if(num%2 != 0):
             return False
 
-        while i>=0 and j<num:
-            if(s[i] == '(' and s[j] == ')' or 
-                s[i] == '{' and s[j] == '}' or 
-                s[i] == '[' and s[j] == ']'):
-                i -= 1
-                j += 1
+        for bracket in s:
+            # Append opening brackets
+            if bracket in brackets:
+                parentheses.append(bracket)
+
+            # Pop if corresponding closing bracket found
+            elif len(parentheses)>0 and bracket == brackets[parentheses[-1]]:
+                parentheses.pop()
+
+            # No corresponding opening bracket found or unwanted closing parentheses
             else:
                 return False
-        return True
 
+        return not parentheses
 # @lc code=end
