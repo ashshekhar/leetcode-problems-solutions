@@ -20,16 +20,12 @@ class Solution(object):
         elif (n == 0):
             return 1
 
-        elif(n > 0):
-            for i in range(n):
-                output *= x
-            return output
+        for i in range(abs(n)):
+            output *= x
+
+        if(n<0):
+            return 1/output
+        return output
             
-        elif(n < 0):
-            for i in range(-n):
-                output *= x
-            output = 1/output
-            return output         
-        
 # @lc code=end
 
