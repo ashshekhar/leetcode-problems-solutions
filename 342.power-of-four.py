@@ -21,12 +21,13 @@ class Solution(object):
         
         while type(n) is int:
             n = float(n/4)
-            
-            if(n<=0):
+    
+            if(int(n)<=0):
                 return False
-            if(n == 1):
+            if(int(n) == 1):
                 return True
-
+            if(n%4 == 0):
+                n = int(n)
         return False
 # @lc code=end
 
