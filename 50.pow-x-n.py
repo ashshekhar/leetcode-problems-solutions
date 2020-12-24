@@ -17,9 +17,9 @@ class Solution(object):
 
         elif (n == 0):
             return 1
-
-        # Try recursive solution
-        output = x * myPow(x, n-1)
+            
+        if(abs(n)>0):
+            output = x * self.myPow(x, abs(n)-1)
 
         if(n<0):
             return 1/output
