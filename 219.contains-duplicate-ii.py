@@ -15,16 +15,20 @@ class Solution(object):
         :rtype: bool
         """
         k_nearby = deque()
-        
+        n = len(nums)
+
+        if(len(set(nums)) == n):
+            return False
+
         for i in range(1, k+1):
-            if(k < len(nums)):
+            if(k < n):
                 k_nearby.append(nums[i])
 
-        if (not k_nearby and k>=len(nums)):
-            for i in range(1, len(nums)):
+        if (not k_nearby and k>=n):
+            for i in range(1, n):
                 k_nearby.append(nums[i])
 
-        for i in range(len(nums)):
+        for i in range(n):
             if(nums[i] in k_nearby):
                 return True
             else:
@@ -32,7 +36,7 @@ class Solution(object):
                     k_nearby.popleft()
                 else:
                     return False
-                if(i+k+1 < len(nums)):
+                if(i+k+1 < n):
                     k_nearby.append(nums[i+k+1])
         return False
 # @lc code=end
