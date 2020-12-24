@@ -12,16 +12,14 @@ class Solution(object):
         :type n: int
         :rtype: float
         """
-        output = 1
-
         if(n == 1):
             return x
 
         elif (n == 0):
             return 1
 
-        for i in range(abs(n)):
-            output *= x
+        # Try recursive solution
+        output = x * myPow(x, n-1)
 
         if(n<0):
             return 1/output
