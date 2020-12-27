@@ -11,6 +11,5 @@ class Solution:
             if i not in nums:
                 return i
         return i+1
-      
 # @lc code=end
 
