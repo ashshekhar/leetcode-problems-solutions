@@ -12,13 +12,17 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        output = []
+        dictionary = {}
         
-        for i in range(len(nums)):
-            if((target-nums[i]) in nums[i+1:]):
-                output.append(i)
-                output.append(nums[i+1:].index(target-nums[i]) + (i+1))
-                
-        return output
+        # Working with indices, so can use enumerate
+        
+        for index, value in enumerate(nums):
+            diff = target-value
+            
+            if diff in dictionary:
+                return[index, dictionary[diff]]
+            else:
+                dictionary[value] = index
+            
 # @lc code=end
 
