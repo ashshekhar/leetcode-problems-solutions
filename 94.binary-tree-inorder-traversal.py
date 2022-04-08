@@ -41,7 +41,8 @@ class Solution(object):
             
         #     return result
         
-        #Iterative Approach
+        # Iterative Approach
+        # Idea is to keep appending left child until none. After that, print out node and move to right and repeat
         result = []
         stack = []
         current = root
