@@ -18,6 +18,7 @@ class Solution(object):
         :rtype: int
         """
         # Recursive approach
+        # Each level you go, you add +1 to depth
         if not root:
             return 0
 

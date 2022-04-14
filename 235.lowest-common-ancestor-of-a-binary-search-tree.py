@@ -20,6 +20,7 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
+        # The idea is that is to move to either subtree based on both p and q values
         current = root
         
         while current:
@@ -29,6 +30,6 @@ class Solution(object):
                 current = current.right
             else:
                 return current
-                
+                    
 # @lc code=end
 
