@@ -5,9 +5,6 @@
 #
 
 # @lc code=start
-from operator import le
-
-
 class Solution(object):
     def pivotIndex(self, nums):
         """
