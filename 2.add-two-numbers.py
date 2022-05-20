@@ -38,8 +38,8 @@ class Solution(object):
             dec_2 += num_2[i] * (10**i)
             
         # Now we have the number - Convert it to reverse linked list
-        l3 = ListNode()
-        dummy = l3
+        dummy = ListNode()
+        l3 = dummy
         
         for num in str(dec_1+dec_2)[::-1]:
             dummy.next = ListNode(num)

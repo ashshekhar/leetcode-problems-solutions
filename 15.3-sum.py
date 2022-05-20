@@ -14,6 +14,9 @@ class Solution(object):
         output = []
         nums.sort()
         
+        # [-1, 0, 1, 2, -1, -4]
+        # [-4, -1, -1, 0, 1, 2]
+        
         for index, value in enumerate(nums):
             
             if index > 0 and value == nums[index-1]:

@@ -11,9 +11,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from collections import deque
-
-
 class Solution(object):
     def helper(self, root, index, result):
         
@@ -26,7 +23,7 @@ class Solution(object):
             self.helper(root.left, index+1, result)
         if root.right:
             self.helper(root.right, index+1, result)
-    
+        
         return result
     
     def levelOrder(self, root):
