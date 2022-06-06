@@ -13,6 +13,8 @@ class Solution(object):
         """
         
         # This problem demands optimization and hence Greedy algorithm or DP is used
+        # Remember that if you have a,b,c then c-a = b-a + c-b 
+        
         max_so_far = 0
         final_max = 0
         
