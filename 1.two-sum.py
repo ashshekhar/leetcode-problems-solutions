@@ -14,15 +14,13 @@ class Solution(object):
         """
         dictionary = {}
         
-        # Working with indices, so can use enumerate
-        
         for index, value in enumerate(nums):
-            diff = target-value
+            difference = target - value
             
-            if diff in dictionary:
-                return[index, dictionary[diff]]
-            else:
+            if difference not in dictionary:
                 dictionary[value] = index
-            
+            else:
+                return [index, dictionary[difference]]
+                
 # @lc code=end
 
