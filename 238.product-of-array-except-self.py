@@ -12,21 +12,30 @@ class Solution(object):
         :rtype: List[int]
         """
         left_product = []
-        right_product = [0 for i in range(len(nums))]
+        right_product = []
         output = []
         
-        left_product.append(1)
-        right_product.insert(len(nums)-1, 1)
-        
-        for i in range(1, len(nums)):
-            left_product.append(left_product[i-1] * nums[i-1])  
-            
-        for i in range(len(nums)-2, -1, -1):
-            right_product[i] = right_product[i+1] * nums[i+1]
-
         for i in range(len(nums)):
-            output.append(left_product[i] * right_product[i])
+            left_product.append(0)
+            right_product.append(0)
+            output.append(0)
+        
+        # Fill left products
+        left_product[0] = 1
+        
+        for i in range(len(nums) - 1):
+            left_product[i+1] = left_product[i] * nums[i]
+        
+        # Fill right products
+        right_product[len(nums) - 1] = 1
+        
+        for i in range(len(nums) - 1, 0, -1):
+            right_product[i-1] = nums[i] * right_product[i]
+            
+        # Prepare output array
+        for i in range(len(nums)):
+            output[i] = left_product[i] * right_product[i]
         
         return output
-            
+                   
 # @lc code=end
