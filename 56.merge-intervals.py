@@ -5,7 +5,7 @@
 #
 
 # @lc code=start
-from numpy import sort
+from calendar import c
 
 
 class Solution(object):
@@ -17,6 +17,9 @@ class Solution(object):
         output = []
         intervals = sorted(intervals, key=lambda x:x[0])
         
+        if len(intervals) == 1:
+            return intervals
+        
         current_interval = intervals[0]
         output.append(current_interval)
         
@@ -27,12 +30,11 @@ class Solution(object):
             if next_begin <= current_end:
                 current_interval[0] = min(current_interval[0], interval[0])
                 current_interval[1] = max(current_interval[1], interval[1])
-                
+
             else:
                 current_interval = interval
                 output.append(current_interval)
         
-        return output           
-        
+        return output 
 # @lc code=end
 
