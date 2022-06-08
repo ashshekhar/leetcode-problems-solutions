@@ -17,7 +17,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        if root is None:
+        if not root:
             return None
         
         temp = root.left
@@ -26,7 +26,7 @@ class Solution(object):
         
         self.invertTree(root.left)
         self.invertTree(root.right)
-
+        
         return root
         
 # @lc code=end
