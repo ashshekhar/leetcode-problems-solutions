@@ -21,13 +21,18 @@ class Solution(object):
         :rtype: TreeNode
         """
         # The idea is that is to move to either subtree based on both p and q values
+        if not root:
+            return
+        
         current = root
         
-        while current:
+        while current: 
             if p.val < current.val and q.val < current.val:
                 current = current.left
+            
             elif p.val > current.val and q.val > current.val:
                 current = current.right
+                
             else:
                 return current
                     
