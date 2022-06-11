@@ -37,6 +37,7 @@ class Solution(object):
         
         result = []
         index = 0
+        
         return self.helper(root, index, result)
         
 # @lc code=end
