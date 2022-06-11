@@ -6,36 +6,35 @@
 
 # @lc code=start
 class Solution(object):
-    def mark_visited(self, grid, rows, columns, i, j):
-        if i < 0 or i >= rows or j < 0 or j >= columns or grid[i][j] != '1':
+    def mark_neighbors_visited(self, grid, row, column, rows, columns):
+        if row < 0 or column < 0 or row > rows - 1 or column > columns - 1 or grid[row][column] != '1':
             return
         
-        grid[i][j] = '2'
+        grid[row][column] = '2'
         
-        self.mark_visited(grid, rows, columns, i+1, j)
-        self.mark_visited(grid, rows, columns, i-1, j)
-        self.mark_visited(grid, rows, columns, i, j+1)
-        self.mark_visited(grid, rows, columns, i, j-1)
+        directions = [[0, -1], [-1, 0], [1, 0], [0, 1]]
         
+        for direction in directions:
+            self.mark_neighbors_visited(grid, row+direction[0], column+direction[1], rows, columns)
+    
     def numIslands(self, grid):
         """
         :type grid: List[List[str]]
         :rtype: int
         """
-        islands = 0
+        if not grid:
+            return
+        
         rows = len(grid)
         columns = len(grid[0])
-        
-        if rows == 0 or columns == 0:
-            return
+        count = 0
         
         for i in range(rows):
             for j in range(columns):
-               if grid[i][j] == '1':
-                   islands += 1
-                   self.mark_visited(grid, rows, columns, i, j)
-                   
-        return islands
-    
+                if grid[i][j] == '1':
+                    count += 1
+                    self.mark_neighbors_visited(grid, i, j, rows, columns)
+        
+        return count
 # @lc code=end
 
