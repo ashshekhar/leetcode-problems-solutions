@@ -25,7 +25,7 @@ class Solution(object):
         strs = sorted(strs, key=lambda x: len(x))
         smallest = strs[0]
         
-        while len(smallest) > 1:
+        while len(smallest) > 0:
             for i in range(1, len(strs)):
                 if smallest in strs[i][:len(smallest)]:
                     flag = True
