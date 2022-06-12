@@ -15,15 +15,9 @@ class Solution(object):
         
         length = len(s)
         
-        if s == "":
-            return True
-        
         i = 0
         j = length - 1
     
-        if length == 2 and s[i] == s[j]:
-            return True
-          
         while i < j:
             if s[i] == s[j]:
                 i += 1
@@ -32,8 +26,6 @@ class Solution(object):
             else:
                 return False
         
-        # Odd or even length
-        if i == j or i > j:
-            return True
+        return True
 # @lc code=end
 
