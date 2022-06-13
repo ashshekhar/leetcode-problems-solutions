@@ -19,14 +19,28 @@ class Solution(object):
         """
         # Recursive approach
         # Each level you go, you add +1 to depth
+        # if not root:
+        #     return 0
+        
+        # return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+        # Iterative Approach using Stack
         if not root:
             return 0
-
-        depth =  1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
         
+        stack = [[1, root]]
+        depth = 0
+        
+        while stack:
+            current_depth, root = stack.pop()
+            depth = max(current_depth, depth)
+            
+            if root.left:
+                stack.append([1 + current_depth, root.left])
+            if root.right:
+                stack.append([1 + current_depth, root.right])
+            
         return depth
-
-        # Iterative Approach
         
 # @lc code=end
 
