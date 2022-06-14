@@ -5,23 +5,18 @@
 #
 
 # @lc code=start
+from collections import Counter
 class Solution(object):
     def findDuplicate(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        duplicate = {}
+        duplicate = Counter(nums)
         
-        for num in nums:
-            if num in duplicate:
-                duplicate[num] += 1
-            else:
-                duplicate[num] = 1
-                    
-        for pairs in duplicate.keys():
-            if duplicate[pairs] > 1:
-                return pairs   
+        for keys in duplicate.keys():
+            if duplicate[keys] > 1:
+                return keys   
                
         
 # @lc code=end

@@ -16,27 +16,46 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        nodes = []
-        current = head
-        index = 0
+                
+        # Slow and fast pointer technique
+        slow = head
+        fast = head.next
         
-        while current:
-            nodes.append(index)
-            index += 1
-            current = current.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
         
-        mid_index = len(nodes) // 2
+        # Odd cases
+        if not fast:
+            return slow
         
-        current = head
-        new_index = 0
+        # Even cases
+        elif not fast.next:
+            return slow.next
+        
+        # Brute Technique
+        # nodes = []
+        # current = head
+        # index = 0
+        
+        # while current:
+        #     nodes.append(index)
+        #     index += 1
+        #     current = current.next
+        
+        # mid_index = len(nodes) // 2
+        
+        # current = head
+        # new_index = 0
 
-        while new_index <= mid_index and current:
-            if new_index == mid_index:
-                return current
-            else:
-                current = current.next
-            new_index += 1
-            
+        # while new_index <= mid_index and current:
+        #     if new_index == mid_index:
+        #         return current
+        #     else:
+        #         current = current.next
+        #     new_index += 1
+        
+
                  
 # @lc code=end
 
