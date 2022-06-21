@@ -15,16 +15,14 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: List[int]
         """
-        result = []
-        while len(matrix):
-            try:
-                result += matrix.pop(0)
-                result += [i.pop() for i in matrix]
-                result += matrix.pop()[::-1]
-                result += [i.pop(0) for i in matrix[::-1]]
-            except:
-                break
+        rows = len(matrix)
+        cols = len(matrix[0])
         
-        return result
+        top_left = (0,0)
+        top_right = (0, cols - 1)
+        bottom_left = (rows - 1, 0)
+        bottom_right = (rows - 1, cols  - 1)
+        
+
 
 # @lc code=end
