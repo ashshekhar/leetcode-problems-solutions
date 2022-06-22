@@ -11,27 +11,24 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
-        row_zeroes = []
-        col_zeroes = []
+        row_zeroes = set()
+        col_zeroes = set()
         
         rows, columns = len(matrix), len(matrix[0])
         
         for i in range(rows):
             for j in range(columns):
                 if matrix[i][j] == 0:
-                    row_zeroes.append(i)
-                    col_zeroes.append(j)
-                    
-        row_zeroes = list(set(row_zeroes))
-        col_zeroes = list(set(col_zeroes))
+                    row_zeroes.add(i)
+                    col_zeroes.add(j)
            
-        for index in row_zeroes:
+        for row in row_zeroes:
             for i in range(columns):
-                matrix[index][i] = 0
+                matrix[row][i] = 0
         
-        for index in col_zeroes:
+        for col in col_zeroes:
             for i in range(rows):
-                matrix[i][index] = 0    
+                matrix[i][col] = 0    
 
 # @lc code=end
 
