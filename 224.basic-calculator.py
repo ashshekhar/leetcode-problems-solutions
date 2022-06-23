@@ -13,7 +13,7 @@ class Solution(object):
         """
         stack = []
         sum = 0
-        sign = 1 # 1 is positive, -1 is negative
+        sign = 1 # 1 is positive, -1 is negative operation
         i = 0
         
         # Input cleaning
