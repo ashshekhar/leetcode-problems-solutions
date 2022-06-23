@@ -32,11 +32,12 @@ class Solution(object):
                 num = 0
                 
                 while s[i].isdigit() and i < len(s):
-                    # print(s, i, s[i])
                     num = 10*num + int(s[i])
                     i += 1
 
                 sum += num * sign
+                
+                # Come back to the end of number for next i + 1
                 i -= 1
                 
             # (
@@ -49,7 +50,7 @@ class Solution(object):
             # )
             if s[i] == ')':
                 if stack:
-                    sum = sum * stack.pop()
+                    sum *= stack.pop()
                     sum += stack.pop()
                     
             i += 1
