@@ -10,7 +10,7 @@ def dfs(visited, graph, node):
 
     for neighbor in graph[node]:
       dfs(visited, graph, neighbor)
-  
+
   return result
     
 
