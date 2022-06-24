@@ -1,4 +1,4 @@
-# This is a version of original question 1170
+# This is a version of original question 1730
 # Instead of counting the number of steps, DFS checks if it is possible to visit the food or not
 class Solution(object):
     def getFood(self, grid):
