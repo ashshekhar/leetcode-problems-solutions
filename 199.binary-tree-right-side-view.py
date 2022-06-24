@@ -1,7 +1,7 @@
 #
-# @lc app=leetcode id=102 lang=python
+# @lc app=leetcode id=199 lang=python
 #
-# [102] Binary Tree Level Order Traversal
+# [199] Binary Tree Right Side View
 #
 
 # @lc code=start
@@ -12,33 +12,43 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+    
     def helper(self, root, index, result):
+        
         if index < len(result):
             result[index].append(root.val)
         else:
             result.append([root.val])
         
-        if root.left:
-            self.helper(root.left, index+1, result)
-            
         if root.right:
             self.helper(root.right, index+1, result)
+            
+        if root.left:
+            self.helper(root.left, index+1, result)
         
         return result
     
-    def levelOrder(self, root):
+    def rightSideView(self, root):
         """
         :type root: TreeNode
-        :rtype: List[List[int]]
+        :rtype: List[int]
         """
-        # BFS uses queue
+        # Create a hashmap with nodes from right to left as values and level as keys
+
+        # Level order traversal
         if not root:
             return
         
         result = []
         index = 0
+        final = []
         
-        return self.helper(root, index, result)
-        
+        res = self.helper(root, index, result)
+
+        for results in res:
+            final.append(results[0])
+
+        return final
+
 # @lc code=end
 
