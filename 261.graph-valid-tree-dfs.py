@@ -13,7 +13,6 @@ class Solution(object):
         # Prepare the dictionary
         adj_list = {i : [] for i in range(n)}
         
-        # Undirected edges
         for edge in edges:
             adj_list[edge[0]].append(edge[1])
             adj_list[edge[1]].append(edge[0])
@@ -22,19 +21,21 @@ class Solution(object):
         # Since bi directional graph such as: 0 -> 1, 1 -> 0 etc. exists
         # This means that when visiting 1's neighbors 0 will be in visited but is not forming a loop
         def dfs(node, prev_node):
+            
+            # Cycle detection
             if node in visited:
                 return False
+                                
+            visited.add(node)
             
             for neighbor in adj_list[node]:
                 if neighbor == prev_node:
                     continue
-                    
-                visited.add(neighbor)
-                
+
                 if not dfs(neighbor, node):
                     return False
                 
             return True
         
         # Also check if all nodes were visited (Guarantees connection)
-        return len(visited) == n and dfs(0, -1)
+        return dfs(0, -1) and len(visited) == n 
