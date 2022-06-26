@@ -17,16 +17,13 @@ class Solution(object):
         if n == 1:
             return True
         
-        # An ugly number, if kept being divided by 2, 3 and 5 reduces to 1
-        while n%2 == 0 or n%3 == 0 or n%5 == 0:
-            if n%2 == 0:
-                n = n // 2
-                
-            if n%3 == 0:
-                n = n // 3
-                
-            if n%5 == 0:
-                n = n // 5
+        primes = [2, 3, 5]
+        
+        # An ugly number, if kept being divided by 2, 3 or 5 reduces to 1
+        for prime in primes:
+            
+            while n % prime == 0:
+                n = n // prime
                 
         return n == 1
             
