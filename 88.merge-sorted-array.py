@@ -14,30 +14,30 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-
-        nums1_copy = nums1[:m]
-        del nums1[:]
-        nums1 = []
-
         pointer_1 = 0
         pointer_2 = 0
 
-        while pointer_1<m and pointer_2<n:
+        while pointer_1 < m and pointer_2 < n and nums1[pointer_1] != 0:
 
-            if(nums1_copy[pointer_1] < nums2[pointer_2]):
-                nums1.append(nums1_copy[pointer_1])
+            if(nums1[pointer_1] <= nums2[pointer_2]):
                 pointer_1 += 1
 
             else:
-                nums1.append(nums2[pointer_2])
+                nums1[pointer_1], nums1[pointer_1 + 1] = nums1[pointer_1 + 1], nums1[pointer_1]
+                nums1[pointer_1] = nums2[pointer_2]
+                
+                pointer_1 += 1
                 pointer_2 += 1
+        
+        while pointer_2 < n:
+            if nums1[0] == 0:
+                nums1[0] = nums2[0]
+            else:
+                nums1[pointer_1 + 1] = nums2[pointer_2]
             
-        if pointer_1>=m:
-            nums1.extend(nums2[pointer_2:n])
-
-        if pointer_2>=n:
-            nums1.extend(nums1_copy[pointer_1:m])
-    
+            pointer_1 += 1
+            pointer_2 += 1
+            
         return nums1
 # @lc code=end
 
