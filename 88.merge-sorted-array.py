@@ -14,30 +14,28 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        pointer_1 = 0
-        pointer_2 = 0
-
-        while pointer_1 < m and pointer_2 < n and nums1[pointer_1] != 0:
-
-            if(nums1[pointer_1] <= nums2[pointer_2]):
-                pointer_1 += 1
-
-            else:
-                nums1[pointer_1], nums1[pointer_1 + 1] = nums1[pointer_1 + 1], nums1[pointer_1]
-                nums1[pointer_1] = nums2[pointer_2]
-                
-                pointer_1 += 1
-                pointer_2 += 1
         
-        while pointer_2 < n:
-            if nums1[0] == 0:
-                nums1[0] = nums2[0]
+        # This problem is best done in reverse order because it is guaranteed that there is enough 0s and space
+        # m and n represent the number of elements which are yet to be operated on
+        last = m + n -1
+        
+        # Reverse order
+        while m > 0 and n > 0:
+            if nums1[m - 1] > nums2[n - 1]:
+                nums1[last] = nums1[m - 1]
+                m -= 1
+                
             else:
-                nums1[pointer_1 + 1] = nums2[pointer_2]
+                nums1[last] = nums2[n - 1]
+                n -= 1
             
-            pointer_1 += 1
-            pointer_2 += 1
+            last -= 1
+        
+        # Elements left in nums2 - Directly merge until none left
+        while n > 0:
+            nums1[last] = nums2[n - 1]
+            n -= 1
+            last -= 1
             
-        return nums1
 # @lc code=end
 
