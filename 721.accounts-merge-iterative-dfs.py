@@ -1,5 +1,5 @@
 #
-# @lc app=leetcode id=721 lang=python3
+# @lc app=leetcode id=721 lang=python
 #
 # [721] Accounts Merge
 #
