@@ -11,23 +11,37 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        
         # This problem demands optimization and hence Greedy algorithm or DP is used
-        # Remember that if you have a,b,c then c-a = b-a + c-b 
+        # dp[i] stores the max profit at each index
+        dp = [0 for _ in range(len(prices))]
         
-        max_so_far = 0
-        final_max = 0
+        # Base case
+        dp[len(prices) - 1] = 0
         
-        for i in range(1, len(prices)):
-            max_so_far += (prices[i] - prices[i-1])
+        for i in reversed(range(len(prices) - 1)):
+            profit = (prices[i + 1] - prices[i]) + dp[i + 1]
+            
+            if profit < 0:
+                dp[i] = 0
+            else:
+                dp[i] = profit
+                
+        return max(dp)
+    
+        # Kadane's Algorithm
+        # max_so_far = 0
+        # final_max = 0
+        
+        # for i in range(1, len(prices)):
+        #     max_so_far += (prices[i] - prices[i-1])
 
-            # Better off as empty array
-            if(max_so_far < 0):
-                max_so_far = 0 
+        #     # Better off as empty array
+        #     if(max_so_far < 0):
+        #         max_so_far = 0 
 
-            final_max = max(final_max, max_so_far)
+        #     final_max = max(final_max, max_so_far)
         
-        return final_max 
+        # return final_max 
     
 # @lc code=end
 
