@@ -16,14 +16,14 @@ class Solution:
             res = res << 1
             
             # If even, last digit = bit = 0, else 1
-            bit = n % 2
+            # bit = n % 2
+            bit = n & 1
             
             res += bit
             
             n = n >> 1
         
         return res
-            
-        
+               
 # @lc code=end
 
