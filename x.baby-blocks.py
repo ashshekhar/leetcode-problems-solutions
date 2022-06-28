@@ -32,7 +32,7 @@ class Solution:
                     # Any False value will make valid False and hence the whole answer
                     valid = valid or dfs(word, index + 1)
                     
-                    # Backtrackign
+                    # Backtracking
                     visited.remove(pair)
  
             return valid
