@@ -26,17 +26,17 @@ class Solution(object):
             
             if nums[mid] == target:
                 return mid
-            
-            # Left half sorted
+             
+            # Left half is start of sorted array
             if nums[mid] >= nums[left]:
-                if target <= nums[mid] and target >= nums[left]:
+                if nums[left] <= target <= nums[mid]:
                     right = mid - 1
                 else:
                     left = mid + 1
             
-            # Right half sorted
+            # Right half is start of sorted array
             elif nums[mid] < nums[left]:
-                if target >= nums[mid] and target <= nums[right]:
+                if nums[mid] <= target <= nums[right]:
                     left = mid + 1
                 else:
                     right = mid - 1
