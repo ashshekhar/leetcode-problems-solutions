@@ -19,9 +19,13 @@ class Solution(object):
         dp[1] = 1 if s[0]!='0' else 0 
         
         for i in range(2, len(s)+1):
+            # The number of ways to decode the string till current index is equal to before
+            # If considering only the digit
             if 1 <= int(s[i-1]) <= 9:
-                dp[i] += dp[i-1]
-                
+                dp[i] = dp[i-1]
+            
+            # If you mix the prev digit too, then the total number of ways to decode the two chars
+            # is equal to the total number of ways to decode the strings before those two
             if 10 <= int(s[i-2]+ s[i-1]) <= 26:
                 dp[i] += dp[i-2]
                 
