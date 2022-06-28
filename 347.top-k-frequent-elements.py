@@ -6,7 +6,7 @@
 
 # @lc code=start
 from collections import Counter
-import collections
+import heapq
 
 class Solution(object):
     def topKFrequent(self, nums, k):
@@ -15,19 +15,18 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        
         nums = Counter(nums)
-        nums = collections.OrderedDict(sorted(nums.items(), key=lambda x: x[1], reverse=True))
+        heap = []
+        res = []
         
-        freq = list()
-        
-        i = 0
-        for key in nums.keys():
-            print(key)
-            if i < k:
-                freq.append(key)
-            i += 1
-        
-        return freq
+        for key, value in nums.items():
+            heapq.heappush(heap, ( -1 * value, key))
+            
+        while k > 0:
+            res.append(heapq.heappop(heap)[1])
+            k -= 1
+            
+        return res
+            
 # @lc code=end
 
