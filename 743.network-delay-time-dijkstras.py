@@ -50,6 +50,9 @@ class Solution(object):
                 time = max(time, current_weight)
                 
                 for neighbor_weight, neighbor_node in network[current_node]:
+                    
+                    # Since you're doing a while loop, duplicate nodes will also be popped, but
+                    # we only need to update their time once as we are using min_heap, so skip
                     if neighbor_node not in visited:
                         heapq.heappush(min_heap, (current_weight + neighbor_weight, neighbor_node))
             
