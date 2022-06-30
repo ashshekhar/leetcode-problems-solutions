@@ -22,6 +22,7 @@ class Solution(object):
         while root:
             
             # p present in right half
+            # Having equal to condition is important, because if we include in else, then p will be returned
             if p.val >= root.val:
                 root = root.right
                 
@@ -34,8 +35,7 @@ class Solution(object):
         return res
                 
         
-# Trivial: Simply return the next value of out of the inorder traversal
-
+      # Trivial: Simply return the next value of out of the inorder traversal
 #     def inOrderTraversal(self, node, res):
 #         if not node:
 #             return
