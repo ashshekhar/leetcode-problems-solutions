@@ -8,11 +8,11 @@
 from collections import deque
 
 # Definition for a binary tree node.
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
 class Codec:
 
@@ -25,7 +25,7 @@ class Codec:
         if not root:
             return ""
         
-        preorder = ""
+        levelorder = ""
         queue = deque()
         queue.append(root)
         
@@ -33,17 +33,17 @@ class Codec:
             node = queue.popleft()
             
             if not node:
-                preorder += "N,"
+                levelorder += "N,"
                 continue
                 
             else:
-                preorder += str(node.val) + ","
+                levelorder += str(node.val) + ","
                 
             queue.append(node.left)
         
             queue.append(node.right)
                 
-        return preorder
+        return levelorder
 
         # "1,2,3,N,N,4,5,N,N,N,N"
 
