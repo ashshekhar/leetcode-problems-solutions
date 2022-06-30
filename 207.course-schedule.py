@@ -22,8 +22,10 @@ class Solution(object):
             if not self.dfs(prereqs, prerequisiteDict, visited):
                 return False
             
-        # Preparation for future
+        # Cleaning: We are no longer visiting course
         visited.remove(course)
+        
+        # And since the for loop did not return False ever, then course can be completed
         prerequisiteDict[course] = []
         
         return True
@@ -45,7 +47,8 @@ class Solution(object):
 
         visited = set()
         
-        for course in prerequisiteDict.keys():
+        # Call DFS on all courses
+        for course in range(numCourses):
             # DFS: Visit a course, and its neighbors in DFS fashion
             # If the course can be completed - delete that prerequisite
             
