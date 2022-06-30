@@ -57,7 +57,8 @@ class Solution(object):
             res.append(course)
         
             return True
-                
+        
+        # Visit all courses      
         for course in range(numCourses):
             if not dfs(course):
                 return []
