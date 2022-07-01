@@ -50,7 +50,8 @@ class Solution(object):
         
         while len(lists) > 1:
             
-            # The items in this will be merged in the next iteration
+            # This is a place holder for mereged list in this iteration
+            # lists will point to this meerged for next iteration
             merged = []
             
             # Merge every 2 LL and add in merged array
