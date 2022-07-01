@@ -25,7 +25,7 @@ class Solution(object):
             # Maintain counter for sliding window, not entire s
             count[s[right]] = 1 + count.get(s[right], 0)
             
-            # Window is not valid, move the left pointer
+            # Window is not valid, move the left pointer until it is valid
             while (right - left + 1) - max(count.values()) > k:
                 
                 # Remove the count
