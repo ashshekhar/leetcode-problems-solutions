@@ -22,6 +22,8 @@ class Solution(object):
         if length == 1:
             return strs[0]
         
+        # Choose the smallest string and compare it with the rest of the startings
+        # If nothing, then decrement the size of this first string by 1 and continue
         strs = sorted(strs, key=lambda x: len(x))
         smallest = strs[0]
         
