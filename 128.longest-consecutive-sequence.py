@@ -24,6 +24,7 @@ class Solution(object):
             temp = num
             current_max = 0
             
+            # This condition gives us the start of the longest consecutive sequence
             if num - 1 not in nums and num + 1 in nums:
                 while temp in nums:
                     current_max += 1
