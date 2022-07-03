@@ -18,7 +18,7 @@ class Solution(object):
         return res
         
     # There is no use of "X" or "B": Only "M" and "E" are unrevealed
-    # So only "M" and "E" in bounds are valid
+    # So only "M" and "E" squares which are in bounds, are valid
     def checkValidNeighbor(self, board, row, col, rows, cols):
         if not (row < 0 or row >= rows or col < 0 or col >= cols): 
             if board[row][col] == "E" or board[row][col] == "M":

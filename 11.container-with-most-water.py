@@ -22,6 +22,20 @@ class Solution(object):
         left_ptr = 0
         right_ptr = length - 1
         
+        # Greedy approach: Start with the two end indices
+        # Only compromise on the length being shortened by moving either pointers if the height is getting bigger
+        # Since that may mean the reduction of volume due to length is offset and exceeded by increment due to height
+        
+        while left_ptr < right_ptr:
+            max_vol = max(max_vol, (right_ptr - left_ptr) * min(height[left_ptr], height[right_ptr]))
+
+            if height[left_ptr] < height[right_ptr]:
+                left_ptr += 1
+            else:
+                right_ptr -= 1
+        
+        return max_vol
+    
         # Brute force approach which exceeds time limit
         # Redundant calculations of volume
         
@@ -37,19 +51,6 @@ class Solution(object):
         #         j -= 1
         
         # return max_vol
-        
-        # Greedy approach: Start with the two end indices
-        # Only compromise on the length being shortened by moving either pointers if the height is getting bigger
-        # Since that may mean the reduction of volume due to length is offset and exceeded by increment due to height
-        
-        while left_ptr < right_ptr:
-            max_vol = max(max_vol, (right_ptr - left_ptr) * min(height[left_ptr], height[right_ptr]))
 
-            if height[left_ptr] < height[right_ptr]:
-                left_ptr += 1
-            else:
-                right_ptr -= 1
-        
-        return max_vol
 # @lc code=end
 
