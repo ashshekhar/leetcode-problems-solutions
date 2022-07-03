@@ -19,7 +19,6 @@ class Solution(object):
         
         l = 0
         r = len(numbers)-1
-        output = []
         
         while l < r:
             sum = numbers[l] + numbers[r]
@@ -29,12 +28,5 @@ class Solution(object):
             elif (sum > target):
                 r -= 1
             else:
-                output.append(l+1)
-                output.append(r+1)
-                l += 1
-                while l < r and numbers[l] == numbers[l-1]:
-                    l += 1
-                
-        return output
-              
+                return [l + 1, r + 1]
 # @lc code=end
