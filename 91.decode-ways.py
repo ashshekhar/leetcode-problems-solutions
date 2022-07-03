@@ -16,11 +16,16 @@ class Solution(object):
         
         # Base Cases
         dp[0] = 1
-        dp[1] = 1 if s[0]!='0' else 0 
         
+        if s[0] != '0':
+            dp[1] = 1  
+        else:
+            return 0 
+        
+        # Iteration
         for i in range(2, len(s)+1):
             # The number of ways to decode the string till current index is equal to before
-            # If considering only the digit
+            # If considering only the digit. s[i - 1] starts at 1st index character.
             if 1 <= int(s[i-1]) <= 9:
                 dp[i] = dp[i-1]
             

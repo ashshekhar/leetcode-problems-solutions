@@ -17,20 +17,26 @@ class Solution(object):
             return ""
         
         for char in s:
+            
+            # Keep appending till ]
             if char != "]":
                 stack.append(char)
-                
+            
+            # Once encountered, then the strings till "]" are substr
             elif char == "]":
                 substr = ""
                 
+                # Find substr
                 while stack[-1] != "[":
                     substr = stack.pop() + substr
                 stack.pop()
 
+                # After "]" the values while numeric are the multiplicative factor 
                 numeric = ""
                 while stack and stack[-1].isdigit():
                     numeric = stack.pop() + numeric
 
+                # Add back the resultant for next iteration
                 stack.append(int(numeric) * substr)
                 
         return ''.join(stack)
