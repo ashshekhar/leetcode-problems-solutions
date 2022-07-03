@@ -28,6 +28,8 @@ class Solution(object):
         # Base case
         res = pos[0]
         
+        # A positive value will only increment the length of both arrays
+        # A negative value will increment basd on the length of the other array
         for i in range(1, len(nums)):
             if nums[i] > 0:
                 
