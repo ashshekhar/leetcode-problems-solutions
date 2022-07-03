@@ -22,6 +22,7 @@ class Solution(object):
             if index > 0 and value == nums[index-1]:
                 continue
             
+            # For each value, start with the number after till the last index
             l = index + 1
             r = len(nums)-1
             
@@ -36,7 +37,7 @@ class Solution(object):
                     output.append([value, nums[l], nums[r]]) 
                     l += 1
                     
-                    # To avoid duplicate triplets
+                    # To avoid duplicate triplets while 'value' is fixed
                     while l < r and nums[l] == nums[l-1]:
                         l += 1
         return output
