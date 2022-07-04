@@ -36,7 +36,7 @@ class Solution(object):
         :rtype: Node
         """
         if not root:
-            return root
+            return None
         
         result = []
         index = 0
@@ -50,12 +50,6 @@ class Solution(object):
                 for i in range(len(level_nodes)-1):
                     level_nodes[i].next = level_nodes[i+1]
         
-        return root
-                
-        
-        
-        
-        
-        
+        return root     
 # @lc code=end
 
