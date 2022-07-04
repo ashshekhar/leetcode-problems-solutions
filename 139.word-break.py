@@ -12,9 +12,9 @@ class Solution(object):
         :type wordDict: List[str]
         :rtype: bool
         """
-        # dp[i] represents True if there is a sequence starting at ith till i + len(word)th index
-        # such that "word" is in wordDict and the remainining portion after the i + len(word)th index
-        # is also breakable.
+        # dp[i] represents True if there is a substring starting at ith till i + len(word)th index
+        # such this substring "word" is in wordDict and the remainining portion after the i + len(word)th index
+        # is also breakable, or set to True.
         dp = [False for i in range(len(s) + 1)]
         
         # Base Case
@@ -27,6 +27,7 @@ class Solution(object):
                 if (i + len(word)) <= len(s) and s[i : i + len(word)] == word:
                     dp[i] = dp[i + len(word)]
 
+                # Break and move to prev index in s now
                 if dp[i]:
                     break
                 
