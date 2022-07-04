@@ -22,17 +22,18 @@ class Solution(object):
         if not root:
             return False
         
-        def dfs(node, current_sum):
+        def dfs(node, difference):
             if not node:
                 return
                         
-            current_sum += node.val
+            difference -= node.val
             
+            # Reached a leaf node, check now
             if not node.left and not node.right:
-                return current_sum == targetSum
+                return difference == 0
 
-            return dfs(node.left, current_sum) or dfs(node.right, current_sum)
+            return dfs(node.left, difference) or dfs(node.right, difference)
         
-        return dfs(root, 0)
+        return dfs(root, targetSum)
 # @lc code=end
 
