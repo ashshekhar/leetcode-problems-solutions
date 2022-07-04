@@ -17,6 +17,7 @@ class Solution(object):
         if length == 1:
             return nums
 
+        # Assume 0 is always at first index, even if it is not
         current_0_pos = 0
         
         for i in range(length):
