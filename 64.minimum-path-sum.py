@@ -19,20 +19,16 @@ class Solution(object):
         
         # Base case
         dp[0][0] = grid[0][0]
-        min_sum = grid[0][0]
-        
+
+        # First row is shortest to traverse by moving right
         for i in range(1, cols):
             dp[0][i] = grid[0][i] + dp[0][i-1]
-            
-            if dp[0][i] < min_sum:
-                min_sum = dp[0][i]
-        
+
+        # First column is shortest to traverse by moving down
         for j in range(1, rows):
             dp[j][0] = grid[j][0] + dp[j-1][0]
-            
-            if dp[j][0] < min_sum:
-                min_sum = dp[j][0]
-        
+
+        # Fill in the rest of the squares except first row and first column
         for i in range(1, rows):
             for j in range(1, cols):
                 dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
