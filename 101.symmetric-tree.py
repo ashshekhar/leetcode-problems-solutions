@@ -31,14 +31,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        if (not root) or (root.left and not root.right) or (root.right and not root.left):
-            return False
-
-        if not root.left and not root.right:
-            return True
-
-        if root.left.val == root.right.val:
-            return self.isSymmetricNew(root.left, root.right)
+        return self.isSymmetricNew(root, root)
 
 # @lc code=end
 
