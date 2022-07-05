@@ -15,10 +15,12 @@ class Solution(object):
         :type b: int
         :rtype: int
         """
-        while (b!= 0):
-            temp = (a&b) << 1 # Carry
+        # While the carry is not equal to 0, XOR the two numbers and & shift by 1 to find the Carry
+        # Now repeat the same on the XOR result and carry shifted by 1
+        while (b != 0):
+            carry = (a & b) << 1 # Carry
             a = a^b # XOR
-            b = temp
+            b = carry
         
         return a
         
