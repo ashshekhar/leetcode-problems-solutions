@@ -20,8 +20,7 @@ class Solution(object):
         
         def backtrack(index):
             if index >= len(nums):
-                if subset not in res:
-                    res.append(subset[:])
+                res.append(subset[:])
                 return
             
             # Decision to add nums[index]
