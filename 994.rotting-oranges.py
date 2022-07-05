@@ -55,7 +55,5 @@ class Solution(object):
         if fresh > 0:
             return -1
         return time
-                        
-            
 # @lc code=end
 
