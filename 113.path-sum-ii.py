@@ -21,27 +21,26 @@ class Solution(object):
         # The approach is same as Path Sum I with backtracking
         # Backtracking is popping or resetting after all the work needed from a node is done
         if not root:
-            return []
-    
-        current_path = []
-        result = []
+            return
         
-        def dfs(node, current_sum, result, current_path):
+        current_path = []
+        res = []
+        
+        def dfs(node, current_sum, current_path):
+  
             if not node:
                 return
-            
-            current_sum += node.val
+
             current_path.append(node.val)
-        
-            if not node.left and not node.right and current_sum == targetSum:
-                result.append(list(current_path))
-                
-            dfs(node.left, current_sum, result, current_path) or dfs(node.right, current_sum, result, current_path)
+            current_sum += node.val
             
-            # Backtracking
+            if not node.left and not node.right and current_sum == targetSum:
+                res.append(current_path[::])
+
+            dfs(node.left, current_sum, current_path) or dfs(node.right, current_sum, current_path)
             current_path.pop()
-        
-        dfs(root, 0, result, current_path)
-        return result
+
+        dfs(root, 0, current_path)
+        return res
 # @lc code=end
 
