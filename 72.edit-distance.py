@@ -12,7 +12,8 @@ class Solution(object):
         :type word2: str
         :rtype: int
         """
-        # Create a 2D Cache DP with m + 1 x n + 1 size
+        # Create a 2D Cache DP of m + 1 x n + 1 size
+        # cache[i][j] represents the minimum number of operations to convert word1[i:] to word2[j:]
         # Fill the last col and last row as base case
         # Then start filling the 2D DP bottom up as per:
         
