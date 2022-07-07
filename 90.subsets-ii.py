@@ -14,7 +14,9 @@ class Solution(object):
 
         res = []
         subset = []
-        
+
+        # This will help us ignore the duplicates
+        # To make sure, we never select duplicates, if we decide to not include a value then ignore ALL the same values
         nums.sort()
         
         def backtrack(index):
@@ -29,6 +31,7 @@ class Solution(object):
             # Decision to not add nums[index] and skip all next values which are equal to nums[index]
             subset.pop()
             
+            # To make sure, we never select duplicates, if we decide to not include a value then ignore ALL the same values
             while index + 1 < len(nums) and nums[index] == nums[index + 1]:
                 index += 1
     
