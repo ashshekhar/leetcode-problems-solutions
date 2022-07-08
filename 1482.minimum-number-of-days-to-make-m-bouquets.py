@@ -45,6 +45,8 @@ class Solution(object):
             # Being greedy: If mid works, try to find a smaller number
             if midWorks(mid):
                 right = mid
+            
+            # If it doesn't work, try to find a larger mid day so that more flowers can bloom
             else:
                 left = mid + 1
         
