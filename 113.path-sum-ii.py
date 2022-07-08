@@ -34,6 +34,7 @@ class Solution(object):
             current_path.append(node.val)
             current_sum += node.val
             
+            # Reached a leaf node, now check else backtrack
             if not node.left and not node.right and current_sum == targetSum:
                 res.append(current_path[::])
 

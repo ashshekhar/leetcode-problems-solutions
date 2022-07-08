@@ -34,22 +34,25 @@ class Solution(object):
                 return
 
             current_path.append(node.val)
-            
-            dfs(node.left, current_sum, current_path) or dfs(node.right, current_sum, current_path)
-            
+
             # Start checking from back in each unique path, if targetSum is achieved
-            sum = 0
             
+            # Instead of checking at a leaf node, you simply check at 
+            # all times if the target has been reached. As soon as it is, 
+            # increase the count
+            sum = 0
+
             for index in range(len(current_path) - 1, -1, -1):
                 sum += current_path[index]
                 if sum == targetSum:
                     res += 1
+            
+            dfs(node.left, current_sum, current_path) or dfs(node.right, current_sum, current_path)
             
             current_path.pop()
             
 
         dfs(root, 0, current_path)
         return res
-
 # @lc code=end
 
