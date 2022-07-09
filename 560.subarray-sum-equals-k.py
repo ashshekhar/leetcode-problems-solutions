@@ -18,6 +18,8 @@ class Solution(object):
          
         # Dictionary for possible sums before
         prefix_sum = {}
+        
+        # Number of subarrays with sum 0 is 1
         prefix_sum[0] = 1
         
         res = 0
