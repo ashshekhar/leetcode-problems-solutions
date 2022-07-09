@@ -25,7 +25,7 @@ class Solution(object):
         global diameter
         diameter = 0
 
-        # Return height at each node
+        # Return height which is (1 + max(left, right)) at each node
         def dfs(node):
             
             # Height at null node
@@ -35,10 +35,11 @@ class Solution(object):
             left_subtree_height = dfs(node.left)
             right_subtree_height = dfs(node.right)
 
+            # Track the max diameter so far
             global diameter
             diameter = max(diameter, left_subtree_height + right_subtree_height)
             
-            # Height for 'node'
+            # Height for 'node' to add to diameter for above nodes
             return 1 + max(left_subtree_height, right_subtree_height)
 
         dfs(root)
