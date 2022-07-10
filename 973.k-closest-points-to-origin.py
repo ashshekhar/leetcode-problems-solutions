@@ -19,13 +19,13 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
-        if len(points) <= k:
-            return points
+        # if len(points) <= k:
+        #     return points
         
-        elif k == 0:
-            return []
+        # elif k == 0:
+        #     return []
         
-        # One approach
+        # # One approach
         # min_heap = []
         # res = []
          
