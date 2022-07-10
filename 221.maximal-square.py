@@ -19,23 +19,33 @@ class Solution(object):
         
         max_val = 0
         
-        for i in range(row):
-            matrix[i][0] = int(matrix[i][0])
-            max_val = max(max_val, matrix[i][0])
+        # Stores the max length of square with coordinates (r, c) as the top left corner
+        dp = {}
+        
+        def dfs(r, c):
             
-        for j in range(cols):
-            matrix[0][j] = int(matrix[0][j])
-            max_val = max(max_val, matrix[0][j])
-
-        for i in range(1, row):
-            for j in range(1, cols):
-                if matrix[i][j] == "1":
-                    matrix[i][j] = 1 + int(min(int(matrix[i-1][j]), int(matrix[i][j-1]), int(matrix[i-1][j-1])))
-                    max_val = max(max_val, matrix[i][j])
-                
-                elif matrix[i][j] == "0":
-                    matrix[i][j] = 0
-
+            if r >= row or c >= cols or r < 0  or c < 0 or matrix[r][c] == 0:
+                return 0
+            
+            if (r, c) in dp:
+                return dp[(r, c)]
+            
+            right = dfs(r, c + 1)
+            down = dfs(r + 1, c)
+            diag = dfs(r + 1, c + 1)
+            
+            # Initially
+            dp[(r, c)] = 0
+            
+            # If "1" then must update the length
+            if matrix[r][c] == "1":
+                dp[(r, c)] = 1 + min(right, down, diag)
+            
+            return dp[(r, c)]
+        
+        dfs(0, 0)
+        
+        max_val = max(dp.values())
         return max_val ** 2
                     
 # @lc code=end
