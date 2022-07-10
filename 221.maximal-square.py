@@ -38,6 +38,5 @@ class Solution(object):
 
         return max_val ** 2
                     
-        
 # @lc code=end
 
