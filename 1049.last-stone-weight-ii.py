@@ -15,20 +15,21 @@ class Solution(object):
         # To minimize the difference, the sum of one subset should reach sum(total) // 2
         # The ans would be the min difference of the two subsets
         
-        req = sum(stones)//2        
+        required_sum = sum(stones)//2        
 
         # dp[i] stores the closest possible sum to i that can be obtained using the nums in stones
-        dp = [0 for i in range(req+1)]
+        dp = [0 for i in range(required_sum + 1)]
         
         # For each stone
         for stone in stones:
+            
             # For each possible sum from req to equal to greater than num
-            for w in range(req, stone-1, -1):
+            for sums in range(required_sum, stone-1, -1):
 			    
-                dp[w] = max(dp[w], stone + dp[w - stone])
+                dp[sums] = max(dp[sums], stone + dp[sums - stone])
                 
         # Ans is the difference of subset sums = total - (2 * subset 1 sum)
-        return sum(stones) - 2*dp[req]
+        return sum(stones) - 2 * dp[required_sum]
         
         
 # @lc code=end
