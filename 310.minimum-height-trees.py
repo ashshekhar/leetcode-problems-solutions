@@ -17,15 +17,14 @@ class Solution(object):
         :type edges: List[List[int]]
         :rtype: List[int]
         """
-        
+        # MHT nodes are left out centroid nodes on trimming leaf nodes
         if not edges:
             return [n - 1]
         
         # Trim the leaves until only two or one are left
         adj_list = {i: [] for i in range(n)}
         leaves = []
-        
-        # Adjacency list
+            
         for edge in edges:
             adj_list[edge[0]].append(edge[1])
             adj_list[edge[1]].append(edge[0])
@@ -37,8 +36,8 @@ class Solution(object):
         
         nodes_left = n
         
+        # Start trimming the leaves level wise
         while nodes_left > 2:
-            
             nodes_left -= len(leaves)
             new_leaves = []
             
@@ -51,10 +50,11 @@ class Solution(object):
                 if len(adj_list[only_parent]) == 1:
                     new_leaves.append(only_parent)
             
+            # Prepare for next round
             leaves = new_leaves
-    
+
         return leaves
-        
+                
     # Can't simply return the max of left side and right side since not a tree
     # So, will need to run a DFS on each neighbor
     # TLE Solution
