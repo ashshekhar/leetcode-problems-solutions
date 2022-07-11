@@ -34,8 +34,8 @@ class Solution(object):
             down = dfs(r + 1, c)
             diag = dfs(r + 1, c + 1)
             
-            # Initially
-            dp[(r, c)] = 0
+            if matrix[r][c] == "0":
+                dp[(r, c)] = 0
             
             # If "1" then must update the length
             if matrix[r][c] == "1":
