@@ -13,8 +13,11 @@ class Solution(object):
         elif n == -1:
             return 1/x
         
-        if x == 1:
+        elif n == 1:
             return x
+        
+        if x == 1:
+            return 1
         
         elif x == 0:
             return 0
