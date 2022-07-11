@@ -23,16 +23,17 @@ class Solution(object):
         current_interval = intervals[0]
         output.append(current_interval)
         
-        for interval in intervals:
+        for i in range(1, len(intervals)):
             current_end = current_interval[1]
-            next_begin = interval[0]
-
+            next_begin = intervals[i][0]
+            
+            # Gets updated in output
             if next_begin <= current_end:
-                current_interval[0] = min(current_interval[0], interval[0])
-                current_interval[1] = max(current_interval[1], interval[1])
+                current_interval[0] = min(current_interval[0], intervals[i][0])
+                current_interval[1] = max(current_interval[1], intervals[i][1])
 
             else:
-                current_interval = interval
+                current_interval = intervals[i]
                 output.append(current_interval)
         
         return output 
