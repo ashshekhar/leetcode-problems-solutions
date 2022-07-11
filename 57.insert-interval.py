@@ -17,11 +17,13 @@ class Solution(object):
         for i in range(len(intervals)):
             
             # We have reached a state where newInterval is non-overlapping with the rest of the intervals
+            # Add to beginning
             if newInterval[1] < intervals[i][0]:
                 result.append(newInterval)
                 return result + intervals[i:]
             
             # Current interval is okay to be added in result
+            # Add to end
             elif newInterval[0] > intervals[i][1]:
                 result.append(intervals[i])
             
