@@ -34,13 +34,10 @@ class Solution:
             if len(line) == 1:
 				# Use the format function to fill the remaining string with spaces easily and readable.
 				# For letcode police, yes you could do something like:
-				#     line = " ".join(line)
-				#     line += " " * (maxWidth - len(line))
-				#     lines.append(line)
-				# to be more "raw", but I see no point in that.
-                lines.append(
-                    "{0: <{width}}".format( " ".join(line), width=maxWidth)
-                )
+                line = " ".join(line)
+                line += " " * (maxWidth - len(line))
+                lines.append(line)
+
             else:
 			    # Else calculate how many common spaces and extra spaces are there for the current line.
 				# Example:
@@ -50,10 +47,7 @@ class Solution:
 				# Now divmod will give us how many spaces are for all words and how many extra to distribute.
 				# divmod(5, 3) = 1, 2
 				# This means there should be one common space for each word, and for the first two, add one extra space.
-                space, extra = divmod(
-                    maxWidth - width,
-                    len(line) - 1
-                )
+                space, extra = divmod(maxWidth - width, len(line) - 1)
                 
                 i = 0
 				# Distribute extra spaces first
@@ -62,11 +56,10 @@ class Solution:
                     line[i] += " "
                     extra -= 1
                     i += 1
-                
+                    
+                # Distribute common spaces
 				# Join line array into a string by common spaces, and append to justified lines.
-                lines.append(
-                    (" " * space).join(line)
-                )
+                lines.append((" " * space).join(line))
             
 			# Create new line array with the current word in iteration, and reset current line width as well.
             line = [word]
@@ -74,11 +67,10 @@ class Solution:
         
 		# Last but not least format last line to be left-justified with no extra space inserted between words.
 		# No matter the input, there always be the last line at the end of for loop, which makes things even easier considering the requirement.
-        lines.append(
-            "{0: <{width}}".format(" ".join(line), width=maxWidth)
-        )
-        
+        line = " ".join(line)
+        line += " " * (maxWidth - len(line))
+        lines.append(line)
+
         return lines
-        
 # @lc code=end
 
