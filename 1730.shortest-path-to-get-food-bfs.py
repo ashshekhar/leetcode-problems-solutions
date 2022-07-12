@@ -14,28 +14,31 @@ class Solution(object):
         q = deque()
         visited = set()
         
+        def validCoordinate(row, col):
+            return not(row < 0 or row >= rows or col < 0 or col >= cols or \
+                    grid[row][col] == "X" or (row, col) in visited)
+
         def bfs(i, j):
-            if i < 0 or i > rows - 1 or j < 0 or j > cols - 1:
-                return
-            
+            count = 0
             visited.add((i, j))
-            q.append((i, j, 0))
+            q.append((i, j))
             
             while q:
-                row, col, count = q.popleft()
-                
-                if grid[row][col] == "#":
-                    return count
-                
-                for direction in directions:
-                    new_row, new_col = row + direction[0], col + direction[1]
+                for _ in range(len(q)):
+                    row, col = q.popleft()
                     
-                    if new_row < 0 or new_row > rows- 1 or new_col < 0 or new_col > cols - 1 or grid[new_row][new_col] == "X":
-                        continue
+                    if grid[row][col] == "#":
+                        return count
                     
-                    if (new_row, new_col) not in visited:
-                        visited.add((new_row, new_col))
-                        q.append((new_row, new_col, count + 1))
+                    for direction in directions:
+                        new_row, new_col = row + direction[0], col + direction[1]
+
+                        if validCoordinate(new_row, new_col):
+                            visited.add((new_row, new_col))
+                            q.append((new_row, new_col))
+                    
+                count += 1
+                            
             return -1
         
         for i in range(rows):
