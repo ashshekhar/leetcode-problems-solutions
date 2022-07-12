@@ -20,7 +20,7 @@ class Solution(object):
         """
         ans = []         
         
-        def dfs(root, s):
+        def dfs(root,s):
             
             if not root:
                 return
@@ -41,7 +41,7 @@ class Solution(object):
             return
 			
             
-        dfs(root, "")
+        dfs(root,"")
         
         return ans
 # @lc code=end
