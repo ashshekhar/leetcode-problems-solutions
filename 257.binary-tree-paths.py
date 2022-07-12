@@ -18,31 +18,47 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[str]
         """
-        ans = []         
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def binaryTreePaths(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[str]
+        """
+        global ans
+        ans = []
         
-        def dfs(root,s):
-            
-            if not root:
-                return
-            
-            if not root.left and not root.right:
-                ans.append(s + str(root.val))
-                return
-            
-            # Node
-            s += str(root.val) 
+        def preorder(node, path):
 
-            # Left
-            dfs(root.left,s+"->")
+            global ans
             
-            # Right
-            dfs(root.right,s+"->")
+            if not node:
+                return
             
-            return
-			
+            if not node.left and not node.right:
+                path.append(str(node.val))
+                ans.append(path[::])
+                
+            else:
+                path.append(str(node.val))
             
-        dfs(root,"")
+            preorder(node.left, path)
+
+            preorder(node.right, path)
+            
+            path.pop()
+            
+        path = []
+        preorder(root, path)
         
+        for i in range(len(ans)):
+            ans[i] = "->".join(ans[i])
+            
         return ans
 # @lc code=end
 
