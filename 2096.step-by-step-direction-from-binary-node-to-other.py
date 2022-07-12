@@ -4,9 +4,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-from collections import deque
-
 class Solution(object):
     def getDirections(self, root, startValue, destValue):
         """
@@ -16,38 +13,45 @@ class Solution(object):
         :rtype: str
         """
         
-        global res
+        global res, left, right
         res = []
         
-        s_path = deque()
-        t_path = deque()
+        final_s = []
+        final_t = []
         
-        def preorder(node, target, path):
-            global res
-            
+        left = "L"
+        right = "R"
+        
+        def preorder(node, target, path, final_path, to_append):
+
             if not node:
                 return False
 
             if node.val == target:
-                return True
+                path.append(to_append)
+                final_path.append(path[::])
+                
+            else:
+                path.append(to_append)
             
-            if preorder(node.left, target, path):
-                path.appendleft("L")
-                return True
+            preorder(node.left, target, path, final_path, left)
+            preorder(node.right, target, path, final_path, right)
             
-            if preorder(node.right, target, path):
-                path.appendleft("R")
-                return True
+            path.pop()
 
         # The idea is that we find paths for both start and target nodes.
-        preorder(root, startValue, s_path)  
-        preorder(root, destValue, t_path)
+        preorder(root, startValue, [], final_s, "")  
+        preorder(root, destValue, [], final_t, "")
+        
+        # Returned as a list of list, so take the first and only element and pop first empty char
+        final_s[0].pop(0)
+        final_t[0].pop(0)
 
         # Once we have found them we reduce paths to a lowest common parent node.
-        while s_path and t_path and s_path[0] == t_path[0]:
-            s_path.popleft()
-            t_path.popleft()
+        while final_s[0] and final_t[0] and final_s[0][0] == final_t[0][0]:
+            final_s[0].pop(0)
+            final_t[0].pop(0)
             
         # We change the all items in path of start to 'U' and keep the path of target same.
-        return 'U' * len(s_path) + ''.join(t_path)
+        return 'U' * len(final_s[0]) + ''.join(final_t[0])
                 
