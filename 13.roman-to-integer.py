@@ -11,45 +11,22 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        integer = 0
+        res = 0
         i = 0
         roman = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
 
-        while(i<len(s)):
-            if(s[i] == 'I' and i<len(s)-1): 
-                if(s[i+1] == 'V'):
-                    integer += 4
-                    i += 2
-                    continue
-                if(s[i+1] == 'X'):
-                    integer += 9
-                    i += 2
-                    continue
-
-            elif(s[i] == 'X' and i<len(s)-1): 
-                if(s[i+1] == 'L'):
-                    integer += 40
-                    i += 2
-                    continue
-                if(s[i+1] == 'C'):
-                    integer += 90
-                    i += 2
-                    continue
-
-            elif(s[i] == 'C' and i<len(s)-1): 
-                if(s[i+1] == 'D'):
-                    integer += 400
-                    i += 2
-                    continue
-                if(s[i+1] == 'M'):
-                    integer += 900
-                    i += 2
-                    continue
-
-            integer += roman[s[i]]
-            i += 1
+        while i < len(s):
             
-        return integer
+            if (i + 1) < len(s) and roman[s[i]] < roman[s[i + 1]]:
+                res -= roman[s[i]]
+                res += roman[s[i + 1]]
+                i += 2
+                
+            else:
+                res += roman[s[i]]
+                i += 1
+            
+        return res
 
 # @lc code=end
 
