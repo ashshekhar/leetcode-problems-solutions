@@ -13,12 +13,14 @@ class Solution(object):
         if not root:
             return False
         
+        # Boolean values found at leaf
         if not root.left and not root.right:
             return root.val != 0
         
         left_expr = self.evaluateTree(root.left)
         right_expr = self.evaluateTree(root.right)
         
+        # Use the booleans received and recurse up
         if root.val == 2:
             return (left_expr or right_expr)
               
