@@ -17,6 +17,7 @@ class Solution(object):
         # Should start with a single "/"
         
         # /home//mkd/../path becomes = ["", "home", "", "mkd", "..", "path"]
+        # Result would be /home/path
         # So multiple /// together are reduced to one null string
         path = path.split("/")
         
