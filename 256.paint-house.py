@@ -5,7 +5,7 @@ class Solution(object):
         :rtype: int
         """
         # Each iteration will update dp for each house
-        # dp[j] in ith iteration will represent the min cost to color all houses upto ith house, 
+        # dp[j] in ith iteration will represent the min cost to color all houses from 0 to ith house, 
         # where you're coloring the ith house with jth color
         dp = costs[0]
         
