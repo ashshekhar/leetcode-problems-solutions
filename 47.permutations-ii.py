@@ -1,13 +1,14 @@
 #
-# @lc app=leetcode id=46 lang=python
+# @lc app=leetcode id=47 lang=python
 #
-# [46] Permutations
+# [47] Permutations II
 #
 
 # @lc code=start
 from collections import Counter
+
 class Solution(object):
-    def permute(self, nums):
+    def permuteUnique(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -33,6 +34,6 @@ class Solution(object):
                     permutation.pop()
         
         dfs()
-        return res  
+        return res            
 # @lc code=end
 
