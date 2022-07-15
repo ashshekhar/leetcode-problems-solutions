@@ -5,6 +5,8 @@
 #
 
 # @lc code=start
+
+# Still experiencing TLE with last test cases
 class TrieNode(object):
     def __init__(self, val = None):
         self.val = val
