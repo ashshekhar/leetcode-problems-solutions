@@ -14,7 +14,7 @@ class Solution(object):
         if char != word[index]:
             return 
         
-        if index == len(word) - 1:
+        if index == len(word) - 1 and board[r][c] == word[index]:
             return True
         
         directions = [[0, -1], [0, 1], [-1, 0], [1, 0]]
