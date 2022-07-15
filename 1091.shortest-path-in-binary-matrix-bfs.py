@@ -22,10 +22,7 @@ class Solution(object):
         q = deque()
         visited = set()
         
-        def bfs(i, j):
-            if i < 0 or i > rows - 1 or j < 0 or j > cols - 1:
-                return
-            
+        def bfs(i, j):       
             visited.add((i, j))
             q.append((i, j, 0))
             
