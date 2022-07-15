@@ -12,15 +12,31 @@ class Solution(object):
         :type word2: str
         :rtype: int
         """
-        # Create a 2D Cache DP of m + 1 x n + 1 size
-        # cache[i][j] represents the minimum number of operations to convert word1[i:] to word2[j:]
-        # Fill the last col and last row as base case
-        # Then start filling the 2D DP bottom up as per:
+        # cache[i][j] represents the minimum number of operations to 
+        # convert word1[i:] to word2[j:]
+
+        # word1 on rows, word2 on columns
+        dp = [[float("inf") for _ in range(len(word2) + 1)] for _ in range(len(word1) + 1)]
         
-            # If the char is equal:
-            #    cache[i][j] = cache[i+1][j+1]
-            # Else:
-            #    cache[i][j] = 1 + min(cache[i][j+1], [i+1][j], [i+1][j+1])
-            #    That is,      1 + min(insert, delete, replace)
+        # Base Cases
+        for i in range(len(word1) + 1):
+            dp[i][len(word2)] = len(word1) - i
+        
+        for j in range(len(word2) + 1):
+            dp[len(word1)][j] = len(word2) - j
+        
+        
+        for i in range(len(word1) - 1, -1, -1):
+            for j in range(len(word2) - 1, -1, -1):
+                
+                if word1[i] == word2[j]:
+                    dp[i][j] = dp[i + 1][j + 1]
+                    
+                else:
+                    # 1 + min(insert, delete, replace)
+                    dp[i][j] = 1 + min(dp[i][j + 1], dp[i + 1][j], dp[i + 1][j + 1])
+        
+        return dp[0][0]
+              
 # @lc code=end
 
