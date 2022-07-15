@@ -25,6 +25,7 @@ class Solution(object):
             if self.dfs(board, word, r+direction[0], c+direction[1], row, cols, index+1):
                 return True
 
+        # Backtracking
         board[r][c] = char
         
         return False
