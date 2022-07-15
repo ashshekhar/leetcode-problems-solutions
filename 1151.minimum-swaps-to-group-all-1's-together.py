@@ -4,6 +4,8 @@ class Solution(object):
         :type data: List[int]
         :rtype: int
         """
+        # Faling some test cases
+        
         ones = data.count(1)
         flag = False
         
