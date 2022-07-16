@@ -14,7 +14,7 @@ class Solution(object):
         :rtype: int
         """  
         # DFS approach like 01 Matrix won't work because you can be given multiple rotten oranges
-        # BFS works
+        # Multi source BFS works
         queue = deque()
         
         rows = len(grid)
