@@ -50,7 +50,7 @@ class LRUCache(object):
         :rtype: int
         """
         if key in self.LRUCacheDict:
-            # Remove old DLL and add new on right as MRU
+            # Remove this accessed node and add on right as MRU
             self.remove_from_DLL(self.LRUCacheDict[key])
             self.add_to_right_in_DLL(self.LRUCacheDict[key])
             return self.LRUCacheDict[key].val
