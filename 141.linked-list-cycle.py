@@ -29,6 +29,7 @@ class Solution(object):
             node = node.next
 
         # Fast and slow pointer approach
+        # If ever equal, guarantees a cycle
         # if not head:
         #     return False
         
