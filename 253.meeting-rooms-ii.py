@@ -27,7 +27,8 @@ class Solution(object):
         
         for i in range(1, len(intervals)):
 
-            # If the start of the new meeting is strictly before the end of the earliest meeting in assigned rooms
+            # If the start of the new meeting is strictly before the 
+            # end of the earliest meeting in assigned rooms
             # Then, you need to add a new meeting room
             
             if intervals[i][0] < min_heap[0]:
