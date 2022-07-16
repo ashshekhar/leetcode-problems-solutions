@@ -17,10 +17,15 @@ class FileSystem(object):
         if len(path) == 1:
             return cur
         
+        # Keep creating or keep moving forward
         for word in path.split('/')[1:]:
+            
+            # If the children don't exist and we don't have to create like in ls
+            # Simply return
             if not cur.children.get(word) and not create:
                 return None
-    
+            
+            # Else create using defauldict(TrieNode)
             cur = cur.children[word]
             
         return cur
