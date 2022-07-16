@@ -32,6 +32,7 @@ class Solution(object):
                 current_interval[0] = min(current_interval[0], intervals[i][0])
                 current_interval[1] = max(current_interval[1], intervals[i][1])
 
+            # No overlap, simply update the current_interval to current
             else:
                 current_interval = intervals[i]
                 output.append(current_interval)
