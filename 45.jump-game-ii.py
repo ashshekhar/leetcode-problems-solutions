@@ -11,8 +11,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # nums -> [2,3,1,1,4]
-        # dp -> [2, 1, 2, 1, 0]
+        # nums -> [2, 3, 1, 1, 4]
+        # dp ->   [2, 1, 2, 1, 0]
         # dp[i] represents the minimum number of steps to take from ith index to reach end
         dp = [float("inf") for _ in range(len(nums))]
         
