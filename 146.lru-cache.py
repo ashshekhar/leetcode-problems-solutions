@@ -9,6 +9,7 @@ from collections import OrderedDict
 
 # Raw approach, using simple dictionary and doubly linked list
 # LRUCache: Dictionary will have keys, with values pointing to the correct node of type LRUNode in DLL
+# LRUNode: Each vals in LRUCache will be a node with key, val, prev and next items
 
 class LRUNode():
     def __init__(self, key = 0, val = 0):
