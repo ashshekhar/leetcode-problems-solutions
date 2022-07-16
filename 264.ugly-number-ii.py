@@ -17,7 +17,8 @@ class Solution(object):
         dp[0] = 1
         
         for i in range(1, n):
-            # Find the minimum of all ugly numbers generated, each of which are generated based on the last ugly number of that prime
+            # Find the minimum of all ugly numbers generated
+            # each of which are generated based on the last ugly number of that prime
             minimum = min(2 * dp[index_2], 3 * dp[index_3], 5 * dp[index_5])
             
             dp[i] = minimum
