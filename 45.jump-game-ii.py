@@ -11,6 +11,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # nums -> [2,3,1,1,4]
+        # dp -> [2, 1, 2, 1, 0]
         # dp[i] represents the minimum number of steps to take from ith index to reach end
         dp = [float("inf") for _ in range(len(nums))]
         
@@ -27,7 +29,8 @@ class Solution(object):
                     minimum = min(minimum, dp[i + j])
                 
             dp[i] = 1 + minimum
-             
+        
+        print(dp)
         return dp[0]
         
 # @lc code=end
