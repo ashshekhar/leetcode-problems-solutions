@@ -48,10 +48,10 @@ class Solution(object):
                 # If neg existed before, then pos length increments by 1
                 if neg[i - 1] > 0:
                     pos[i] = 1 + neg[i - 1]
-
-            res = max(res, pos[i])
             
-        
+            # Store the max length
+            res = max(res, pos[i])
+    
         return res
 # @lc code=end
 
