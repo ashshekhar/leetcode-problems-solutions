@@ -54,12 +54,14 @@ class Solution(object):
                 level, node = queue.popleft()
                 
                 # Create 2D array of nodes at each level
+                # res[i] is list of nodes at level i (0-indexed)
                 if level < k + 1:
                     if level < len(res):
                         res[level].append(node.val)
                     else:
                         res.append([node.val])
 
+                # Run BFS on neighbors
                 neighbors = []
                 if node.left:
                     neighbors.append(node.left)
@@ -74,6 +76,7 @@ class Solution(object):
                         visited.add(neighbor.val)
             
             # If res didn't cover the required steps because of non-availability
+            # So if len(res) is not k + 1, that is it never reached level k, return []
             if k + 1 != len(res):
                 return []
             else:
