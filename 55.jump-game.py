@@ -16,6 +16,8 @@ class Solution(object):
         
         for i in reversed(range(len(nums))):
             
+            # This means you can reach the goal from the current index
+            # because nums[i] + i is bigger than the target index
             if i + nums[i] >= goal:
                 goal = i
         
