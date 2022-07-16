@@ -16,7 +16,7 @@ class MyQueue(object):
         :type x: int
         :rtype: None
         """
-        # On detectinv elements in stack1, empty all of them in stack2, add, and add back
+        # On detecting elements in stack1, empty all of them in stack2, add, and add back
         if not self.stack1:
             self.stack1.append(x)
             
