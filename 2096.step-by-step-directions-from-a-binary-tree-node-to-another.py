@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=2096 lang=python
+#
+# [2096] Step-By-Step Directions From a Binary Tree Node to Another
+#
+
+# @lc code=start
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
@@ -55,3 +62,6 @@ class Solution(object):
         # We change the all items in path of start to 'U' and keep the path of target same.
         return 'U' * len(final_s[0]) + ''.join(final_t[0])
                 
+        
+# @lc code=end
+
