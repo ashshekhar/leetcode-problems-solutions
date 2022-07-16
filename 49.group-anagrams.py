@@ -11,16 +11,20 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
+        # Maps the individual characters of each word as keys
+        # to words as values
         big_dict = {}
         
         for char in strs:
+            
             counter = tuple(sorted(char))
-
+            # "eat" -> counter = (u'a', u'e', u't')
+            
             if counter not in big_dict:
                 big_dict[counter] = list()
             
             big_dict[counter].append(char)
-        
+            
         return big_dict.values()
             
         
