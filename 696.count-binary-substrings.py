@@ -21,6 +21,7 @@ class Solution(object):
         right_ptr = 1
         
         # Prepare the count array using two pointers
+        # s = "00110011" -> count = [2, 2, 2, 2, 2]
         while left_ptr <= right_ptr and right_ptr < len(s):
             
             if s[left_ptr] == s[right_ptr]:
@@ -36,7 +37,8 @@ class Solution(object):
         # Find result using count array
         for i in range(1, len(count)):
             res += min(count[i], count[i-1])
-            
+        
+        print(count)
         return res
         
 # @lc code=end
