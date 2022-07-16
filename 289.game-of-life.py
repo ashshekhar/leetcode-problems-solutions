@@ -17,8 +17,9 @@ class Solution(object):
         # 1 -> 1 if 2 or 3 live neighbors else 1 -> 0
         # 0 -> 1 if 3 live neighbors else  0 -> 0
         
-        # Changes based on rules: (Original -> New): Replace original by
-        # 1 -> 1 (2); 1 -> 0 (3); 0 -> 0 (4); 0 -> 1 (5)
+        # Changes based on rules: Original -> New: (Replace original by)
+        # 1 -> 1 (2); 1 -> 0 (3); 
+        # 0 -> 0 (4); 0 -> 1 (5)
         
         # Valid index
         def isValid(row , col):
@@ -31,6 +32,8 @@ class Solution(object):
             neighbor = 0
             for (r, c) in neighbors:
                 if isValid(row + r, col + c):
+                    
+                    # Either 1, 2 or 3 represent originally live
                     if board[row + r][col + c] in [1, 2, 3]:
                         neighbor += 1
                     
