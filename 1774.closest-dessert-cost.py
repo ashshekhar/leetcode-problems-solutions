@@ -31,12 +31,13 @@ class Solution(object):
             global res
             
             # If bigger, then only update if strictly closer to target
+            # Return since we have crossed the target
             if summation > target:
                 if summation - target < abs(target - res):
                     res = summation
                 return
             
-            # Else keep the smaller one
+            # Else keep the smaller one, and update res without returning
             if target - summation <= abs(target - res):
                 res = summation
             
