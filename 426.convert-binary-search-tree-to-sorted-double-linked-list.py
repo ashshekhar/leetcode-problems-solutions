@@ -13,6 +13,8 @@ class Solution(object):
         :type root: Node
         :rtype: Node
         """
+        # We create nodes in inorder fashion
+        # Also keep track on prev node (varying) and head node (first node)
         if not root:
             return None
         
