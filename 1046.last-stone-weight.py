@@ -16,19 +16,20 @@ class Solution(object):
         if len(stones) == 1:
             return 1
         
-        min_heap = []
+        max_heap = []
         
         for stone in stones:
-            heapq.heappush(min_heap, -stone)
+            heapq.heappush(max_heap, -stone)
         
-        while len(min_heap) > 1:
-            stone_1 = heapq.heappop(min_heap)
-            stone_2 = heapq.heappop(min_heap)
+        # At each step, pull out two heaviest stones and store the result
+        while len(max_heap) > 1:
+            stone_1 = -1 * heapq.heappop(max_heap)
+            stone_2 = -1 * heapq.heappop(max_heap)
             
             if stone_1 != stone_2:
-                heapq.heappush(min_heap, stone_1 - stone_2)
+                heapq.heappush(max_heap, -(stone_1 - stone_2))
         
-        return -min_heap[0] if min_heap else 0
+        return -max_heap[0] if max_heap else 0
         
 # @lc code=end
 
