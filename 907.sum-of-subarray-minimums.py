@@ -11,14 +11,18 @@ class Solution(object):
         :type arr: List[int]
         :rtype: int
         """
-        # Can't find all combinations using bactracking and then min sumclass Solution(object):
-
-        # arr = [3,1,2,4]
+class Solution(object):
+    def sumSubarrayMins(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: int
+        """
+        # arr = [0, 3, 1, 2, 4]
         # List out all subarrays ending with element at index i-> 0 to len(arr)-1
         # result[i] stores the min sum of all subarrays that end in ith element
         
         # result = [0, 3, 2, 4, 8]
-        # result[2] = 2 means the minimum sum of all subarrays ending in 2st element in arr = 1
+        # result[2] = 2 means the minimum sum of all subarrays ending in 2nd index element in arr = 1
         # All such subarrays -> [3, 1], [1]
         
         arr = [0] + arr
@@ -32,10 +36,11 @@ class Solution(object):
             while arr[stack[-1]] > arr[i]:
                 stack.pop() 
                 
-            # Last smaller value
+            # Last smaller value of arr[i]
             j = stack[-1]
             
             # Reuse the result
+            # (i - j) * arr[i] since (i - j) times arr[i] has been the smallest
             result[i] = result[j] + (i-j) * arr[i]
             
             # Append the index worked with for future indexes
