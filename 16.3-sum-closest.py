@@ -31,6 +31,7 @@ class Solution(object):
                 
                 diff = abs(sum - target)
                 
+                # Found a closer sum to the target, update res
                 if diff < min_diff:
                     res = sum
                     min_diff = diff
@@ -41,7 +42,15 @@ class Solution(object):
                 elif (sum > target):
                     r -= 1
                 
-                # Found the target
+                # Else find the next unique triplet
+                else:
+                    l += 1
+                    
+                    # To avoid duplicate triplets while 'value' is fixed
+                    while l < r and nums[l] == nums[l-1]:
+                        l += 1
+                        
+                # Diff == 0, hence the closest sum so break
                 if diff == 0:
                     break
         
