@@ -21,7 +21,7 @@ class Solution(object):
         
         # Initialize the result
         # Need to consider the first and last diff too
-        # Diff of "00:00" and "23:59" is 1
+        # Diff of "00:00" and "23:59" is 1440 + (0 - 1439) = 1
         
         res = 1440 + (timePoints[0] - timePoints[-1])
         
