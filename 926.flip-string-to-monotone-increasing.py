@@ -12,14 +12,15 @@ class Solution(object):
         :rtype: int
         """
         # Montone increasing -> Either all 0's, or all 1's or only 0's followed by 1's        
+        
         # For each index, check which is lesser, flipping 1's before the index to 0 or 0's after the index to 1's
         # The index itself doesn't matter as it can be a part of both
         n = len(s)
-        ones = 0
         
+        # We need a count of zeros on the right side to see how many left to flip
+        ones = 0
         zeros = s.count("0")
         
-        # Base case -> Flip all zeroes
         minFlips = zeros
         
         for i in range(n):
@@ -32,7 +33,6 @@ class Solution(object):
             minFlips = min(minFlips, zeros + ones)
             
         return minFlips
-        
         
 # @lc code=end
 
