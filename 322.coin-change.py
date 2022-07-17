@@ -20,11 +20,13 @@ class Solution(object):
         # Base case
         dp[0] = 0
         
+        # Iterate and store the min coins for sum i using all coins
         for i in range(1, amount + 1):
             for coin in coins:
                 if i - coin >= 0:
                     dp[i] = min(dp[i], 1 + dp[i - coin])
         
+        # If we were able to sum up to the amount
         if dp[amount] != float("inf"):
             return dp[amount]
         
