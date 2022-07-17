@@ -22,12 +22,14 @@ class Solution(object):
         memo = [[None for _ in range(total // 2 + 1)] for _ in range(len(nums))]
 
         def recursion(index, target):
-            if index < 0 or index > len(nums) - 1 or target < 0:
+            if index >= len(nums) or target < 0:
                 return False
             
+            # Already cached
             if memo[index][target] != None:
                 return memo[index][target]
-        
+
+            # Reached target
             if target == 0:
                 return True
             
