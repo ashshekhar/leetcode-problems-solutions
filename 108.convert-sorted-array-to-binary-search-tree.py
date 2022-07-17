@@ -26,6 +26,7 @@ class Solution(object):
             mid =  (right + left) // 2
 
             # Preorder traversal: node -> left -> right
+            # Need to first create the node, can't do inorder
             root = TreeNode(nums[mid])
             
             root.left = helper(left, mid - 1)
