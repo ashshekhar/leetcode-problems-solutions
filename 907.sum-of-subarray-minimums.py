@@ -11,12 +11,6 @@ class Solution(object):
         :type arr: List[int]
         :rtype: int
         """
-class Solution(object):
-    def sumSubarrayMins(self, arr):
-        """
-        :type arr: List[int]
-        :rtype: int
-        """
         # arr = [0, 3, 1, 2, 4]
         # List out all subarrays ending with element at index i-> 0 to len(arr)-1
         # result[i] stores the min sum of all subarrays that end in ith element
