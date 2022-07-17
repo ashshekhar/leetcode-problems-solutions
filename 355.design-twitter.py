@@ -38,7 +38,6 @@ class Twitter(object):
         :rtype: List[int]
         """
         self.allTweetsByAllFollowers = []
-        self.final = []
         
         # Find all posts by the followees of userID
         for tweetIDs_of_followees in self.followers[userId]:
