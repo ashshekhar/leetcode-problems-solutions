@@ -16,10 +16,12 @@ class Solution(object):
         
         n = len(s)
         
-        # dp[i][j] represents the length of longest palindromic subsequence between indexes i and j
+        # dp[i][j] represents the length of longest palindromic 
+        # subsequence between indexes [i:j]
         dp = [[0] * n for _ in range(n)]
         
-        # Bottom up
+        # Bottom up: Filling half right matrix
+        # Choose from (left diagonal) or (left and bottom)
         for i in range(n - 1, -1, -1):
             
             dp[i][i] = 1
