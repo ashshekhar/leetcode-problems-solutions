@@ -38,7 +38,8 @@ class Solution(object):
                 left -= 1
                 right += 1     
         
-        # The answer could be larger and odd or larger and even
+        # Check for both (all odd palindromes) and (all even palindromes)
+        # Final answer will be of the length which is bigger out of the two
         for i in range(length):
             
             # If the largest palindrome is odd
