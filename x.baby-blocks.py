@@ -18,8 +18,6 @@ class Solution:
             if word[index] not in store_pairs.keys():
                 return False
             
-            valid = False
-            
             # List of all tuples containing this char
             index_pair = store_pairs[word[index]]
             
@@ -30,12 +28,13 @@ class Solution:
                     visited.add(pair)
                     
                     # Any False value will make valid False and hence the whole answer
-                    valid = valid or dfs(word, index + 1)
+                    if not dfs(word, index + 1):
+                       return False
                     
                     # Backtracking
                     visited.remove(pair)
  
-            return valid
+            return True
               
         store_pairs = collections.defaultdict(set)
         
