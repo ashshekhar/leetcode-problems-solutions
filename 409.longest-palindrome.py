@@ -28,6 +28,7 @@ class Solution(object):
                 result += values
             else:
                 # values - 1 ensure if val was 1, 0 is added for now and odd is toggled True
+                # Only add max even out of the odd, and add 1 later for any of the odds
                 result += values - 1
                 odd = True
         
