@@ -13,7 +13,9 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        # This problem is basically Djikstra's (BFS with min heap) to find the path that reaches the last grid with the smallest height encountered along path
+        # This problem is basically Djikstra's (BFS with min heap) 
+        # to find the path that reaches the last grid with the 
+        # smallest max height encountered along path
         min_heap = []
         visited = set()
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
