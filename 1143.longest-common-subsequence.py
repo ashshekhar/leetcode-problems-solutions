@@ -15,8 +15,11 @@ class Solution(object):
         rows = len(text1)
         cols = len(text2)
         
+        # Stores the LCS starting from between text1[i:] and text2[j:]
         dp = [[0 for _ in range(cols + 1)] for _ in range(rows + 1)]
         
+        # Bottom up with additional row and col
+        # Case of moving either along (diagonal) or (right and down)
         for i in range(rows - 1, -1, -1):
             for j in range(cols - 1, -1, -1):
                 if text1[i] == text2[j]:
