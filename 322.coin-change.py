@@ -21,6 +21,7 @@ class Solution(object):
         dp[0] = 0
         
         # Iterate and store the min coins for sum i using all coins
+        # Only if the coin can be used, (coin - sum >= 0)
         for i in range(1, amount + 1):
             for coin in coins:
                 if i - coin >= 0:
