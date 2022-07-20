@@ -15,20 +15,23 @@ class Solution(object):
         :rtype: Node
         """
         # For a node with right child : l n r follows
-        # Go one right and then left unti you can't to get the successor
-        
+        # To find the smallest greater value than node: Go one right and 
+        # then left until you can't to get the successor which will give you smallest greater
         current = node
-        
+    
         if current.right:
+            
             current = current.right
             
             while current.left:
                 current = current.left
             return current
         
-        # For a node with no right child - the node is some upper node's right part
-        # So go up the parent of this node (for which this node is right part) until you can
-        # Your answer would be the parent node for which the "top of this chain" is a left child
+        # For a node with no immediate right child such as node 2 in example 2
+        # a node greater than this would be one of the parents for which this node is either
+        # left part or right part. 
+        
+        # In both cases you keep going up until you reach a value bigger than this node
         else:
             
             # Using BST property
