@@ -22,7 +22,7 @@ class Solution(object):
         next = None
         
         # Left side points to right side
-        while current is not None:
+        while current:
             next = current.next
             current.next = prev
             prev = current
