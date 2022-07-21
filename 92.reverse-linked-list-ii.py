@@ -18,7 +18,11 @@ class Solution(object):
         :type right: int
         :rtype: ListNode
         """
-        dummy = ListNode(0, head)
+        if not head:
+            return 
+        
+        # dummy node will always point to the current / new head
+        dummy = ListNode(0, next = head)
         
         # Find left and previous to left nodes
         left_node = head
@@ -29,16 +33,8 @@ class Solution(object):
             node_before_left = left_node
             left_node = left_node.next
             temp -= 1
-
-        # Find the right node
-        right_node = head
-        temp = right
-        
-        while temp > 1:
-            right_node = right_node.next
-            temp -= 1
             
-        # Reversing the portion
+        # Reversing the portion required number of times
         prev = None
         nxt = None
         
@@ -52,6 +48,10 @@ class Solution(object):
         node_before_left.next.next = nxt
         node_before_left.next = prev
         
+        # Can't simply return head, because for [1, 2] -> [2, 1] head is modified
+        # Either dummy keeps pointing at original head, like example 1
+        # Or the head is modified, so node_before_left and dummy are the same
+        # and last line (node_before_left.next = prev = dummy.next which is the new head
         return dummy.next
     
 # @lc code=end
